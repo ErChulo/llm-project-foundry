@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>START-A-PROJECT-STEP-BY-STEP-v1.2.0</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<h1 id="how-to-start-a-project-with-an-llm--step-by-step-v120">How to
+Start a Project with an LLM — Step by Step (v1.2.0)</h1>
+<p><strong>Version:</strong> <code>1.2.0</code><br />
+<strong>Date:</strong> 2026-10-18<br />
+<strong>Filename:</strong>
+<code>START-A-PROJECT-STEP-BY-STEP-v1.2.0.md</code><br />
+<strong>Purpose:</strong> A repeatable, beginner-friendly procedure for
+starting a <strong>small or large software project</strong> that you
+will develop <em>with</em> a coding agent such as Codex, OpenCode, or
+Claude Code.</p>
+<blockquote>
+<p><strong>What this guide does:</strong> It gets you from an idea to a
+real, version-controlled project folder (the <strong>scaffold</strong>)
+with useful instructions, data contracts where needed, approved skills,
+and approved MCP servers. <strong>It does not freeze the folder layout
+forever.</strong> The project and its documentation will evolve as you
+and your agent build it.</p>
+</blockquote>
+<h2 id="before-you-begin">Before you begin</h2>
+<ul>
+<li><strong>You</strong> decide what you want and approve decisions that
+matter. <strong>The LLM</strong> helps plan and write files. <strong>The
+coding agent</strong> works in the actual project folder and can help
+build and test software.</li>
+<li>An <strong>LLM chat</strong> can help draft plans even before you
+create a project folder. A <strong>coding agent</strong> (Codex,
+OpenCode, Claude Code, etc.) typically operates on files in that
+folder.</li>
+<li><strong>Skill:</strong> a reusable set of instructions or procedures
+for an agent. <strong>MCP server:</strong> a connection that exposes
+tools or data to an agent. They are not interchangeable.</li>
+<li><strong>Scaffold:</strong> the initial working directory, files,
+configuration and tests—not the finished application.</li>
+<li>You need a terminal, Git, and a coding agent. Some suggested skills
+use Node.js/npm (<code>npx</code>). Install only the tools your selected
+stack needs. Commands below assume a Bash terminal (Linux/macOS/Git
+Bash/WSL); ask your agent for PowerShell/CMD equivalents if
+necessary.</li>
+<li><strong>Follow the steps in order.</strong> When a step says <em>if
+applicable</em>, explicitly record <strong>Not applicable</strong> and
+continue. You should not have to install an unnecessary skill, MCP
+server, database, UI framework, or validation library for a tiny
+project.</li>
+<li><strong>Never paste passwords, tokens, credentials, confidential
+production data, or personal data into prompts, documentation or
+Git.</strong> Use synthetic or sanitized examples.</li>
+</ul>
+<hr />
+<h2 id="choose-the-smallest-setup-that-fits-your-project">Choose the
+smallest setup that fits your project</h2>
+<p><strong>Do not create files just to fill a template.</strong> The
+steps below apply to all projects, but the amount of documentation
+should match the work. When a step is optional, write <strong>Not
+applicable</strong> in your planning notes and move on.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Project type</th>
+<th>Begin with</th>
+<th>Add when needed</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tiny script or experiment</td>
+<td><code>README.md</code>, <code>AGENTS.md</code>, a runnable program,
+Git</td>
+<td>Brief <code>PROJECT_SPEC.md</code>; <code>ARCHITECTURE.md</code> if
+there are important rules</td>
+</tr>
+<tr class="even">
+<td>Application with a user interface</td>
+<td>Above, plus <code>DESIGN.md</code></td>
+<td>Screens, component rules, accessibility checks</td>
+</tr>
+<tr class="odd">
+<td>Data/import/API/LLM-output project</td>
+<td>Above, plus <code>DATA_CONTRACTS.md</code>, appropriate
+<code>schemas/</code> or equivalent contracts, validation tests</td>
+<td>Migrations and compatibility checks</td>
+</tr>
+<tr class="even">
+<td>Complex or collaborative application</td>
+<td>Above, plus <code>ARCHITECTURE.md</code>, appropriate skills and
+integrations</td>
+<td>Expanded tests, CI, decision records, reviews</td>
+</tr>
+</tbody>
+</table>
+<p><strong>How to use this guide:</strong> Work down the numbered steps.
+<em>You</em> approve decisions; the <em>planning chat</em> drafts
+specifications; your <em>coding agent</em> creates and changes files in
+the actual repository. A copy/paste prompt can be adapted to your
+situation. Every step identifies its expected result. You do not need to
+complete a large paperwork exercise to scaffold a small script.</p>
+<h2 id="which-project-file-does-what">Which project file does what?</h2>
+<table>
+<thead>
+<tr class="header">
+<th>File or folder</th>
+<th>Audience</th>
+<th>Role</th>
+<th>Create or update when</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>README.md</code></td>
+<td>People</td>
+<td>What this project does and how to start it</td>
+<td>Initial scaffold and user-facing changes</td>
+</tr>
+<tr class="even">
+<td><code>PROJECT_SPEC.md</code></td>
+<td>You and agent</td>
+<td>Scope, acceptance criteria, project goals</td>
+<td>Planning and changed requirements</td>
+</tr>
+<tr class="odd">
+<td><code>AGENTS.md</code></td>
+<td>Coding agents</td>
+<td>Commands, code conventions, safety restrictions, where other rules
+live</td>
+<td>After real scaffold exists, then as workflows change</td>
+</tr>
+<tr class="even">
+<td><code>DESIGN.md</code></td>
+<td>Agent / UI contributors</td>
+<td>Concrete UI design tokens and interaction rules</td>
+<td>UI exists or changes</td>
+</tr>
+<tr class="odd">
+<td><code>ARCHITECTURE.md</code></td>
+<td>Agent / maintainers</td>
+<td>Non-obvious invariants and rationale</td>
+<td>Architectural decisions change</td>
+</tr>
+<tr class="even">
+<td><code>DATA_CONTRACTS.md</code></td>
+<td>Producers, consumers, agent</td>
+<td>Meaning and compatibility of exchanged data</td>
+<td>Data interfaces change</td>
+</tr>
+<tr class="odd">
+<td><code>schemas/</code></td>
+<td>Programs and validators</td>
+<td>Machine-readable JSON contracts where appropriate</td>
+<td>A structured JSON interface exists or changes</td>
+</tr>
+<tr class="even">
+<td><code>skills/</code></td>
+<td>Coding agent</td>
+<td>Optional <strong>project-local</strong> reusable procedures, each
+with a <code>SKILL.md</code></td>
+<td>A repeated project-specific procedure is needed</td>
+</tr>
+<tr class="odd">
+<td><code>SKILLS.md</code></td>
+<td>You and agent</td>
+<td>Inventory of selected, installed, and global reusable skills</td>
+<td>Skill selection or version changes</td>
+</tr>
+<tr class="even">
+<td><code>MCP_SERVERS.md</code></td>
+<td>You and agent</td>
+<td>MCP server inventory, permissions and connection setup <em>without
+secrets</em></td>
+<td>MCP selection or configuration changes</td>
+</tr>
+<tr class="odd">
+<td><code>scripts/scaffold.sh</code></td>
+<td>You and agent</td>
+<td>Reproducible initial setup (not a frozen project layout)</td>
+<td>Scaffold creation or intentional template evolution</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Important distinction:</strong> <code>README.md</code>
+explains the project to people; <code>AGENTS.md</code> explains how to
+work <em>in this repository</em> to a coding agent; a
+<code>SKILL.md</code> explains a reusable procedure that might work in
+many repositories. A globally installed skill need not be copied into
+every project's <code>skills/</code> folder. Document its name, source
+and invocation in <code>SKILLS.md</code> instead. Some agents use their
+own instruction filename or import mechanism; verify the actual
+supported behavior instead of assuming every agent automatically loads
+<code>AGENTS.md</code>.</p>
+<h2 id="phase-a--decide-what-you-are-building">PHASE A — Decide what you
+are building</h2>
+<h3 id="step-1--explain-your-idea-in-everyday-words">STEP 1 — Explain
+your idea in everyday words</h3>
+<p>Write 2–5 sentences. What should the project do? Who will use it?
+What is the most important outcome? You do not need technical
+vocabulary.</p>
+<p><strong>You do:</strong> Write or dictate your rough idea in an LLM
+chat.</p>
+<p><strong>Result:</strong> A short, informal description of your
+idea.</p>
+<h3
+id="step-2--turn-the-idea-into-a-small-testable-project-specification">STEP
+2 — Turn the idea into a small, testable project specification</h3>
+<p><strong>Copy and paste to the LLM:</strong></p>
+<blockquote>
+<p>Here is my idea: [PASTE IDEA]. Help me create a first-version project
+specification. State its purpose, intended users, 3–6 core features,
+what is <em>out of scope</em>, how we will know the first version works,
+a recommended technology stack, and a simple starter folder structure.
+Separate facts I supplied from your assumptions. Ask me only about
+decisions that would materially change the plan. Save the approved
+specification as <code>PROJECT_SPEC.md</code>.</p>
+</blockquote>
+<p>Read the draft, correct it, and approve it. Start with the
+<strong>smallest useful version</strong>; a large project can add
+features later.</p>
+<p><strong>Result:</strong> An approved
+<code>PROJECT_SPEC.md</code>.</p>
+<h3
+id="step-3--clarify-uncertain-requirements-a-grilling-interview">STEP 3
+— Clarify uncertain requirements (a grilling interview)</h3>
+<p>A <em>grilling</em> skill asks focused questions to expose hidden
+assumptions. You can conduct the interview in the planning chat
+<strong>without installing a skill yet</strong>. Later, if you install
+<code>grill-with-docs</code>, it can revisit and document decisions
+inside the repository.</p>
+<p><strong>Copy and paste:</strong></p>
+<blockquote>
+<p>Interview me about the proposed project. Focus on missing
+requirements, conflicting assumptions, expected users, inputs and
+outputs, edge cases, success criteria, and restrictions. Ask one
+important question at a time. Keep a short decision log and update
+<code>PROJECT_SPEC.md</code> after I approve the answers. Stop when the
+project is clear enough to scaffold.</p>
+</blockquote>
+<p><strong>Result:</strong> Clearer requirements and a short list of
+decisions or unresolved questions. <strong>Do not wait for every future
+implementation detail to be known.</strong></p>
+<h3 id="step-4--draft-the-three-project-rule-documents">STEP 4 — Draft
+the three project-rule documents</h3>
+<p>These describe different concerns. <strong>Create short, useful files
+rather than long speculative documents.</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>Document</th>
+<th>Question it answers</th>
+<th>When needed</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>DESIGN.md</code></td>
+<td>How should screens look and behave?</td>
+<td><strong>If the project has a UI</strong> (web, desktop, mobile, CLI
+with a significant interactive interface)</td>
+</tr>
+<tr class="even">
+<td><code>ARCHITECTURE.md</code></td>
+<td>How should the system be organized, and which rules must never be
+broken?</td>
+<td><strong>All projects</strong>; very brief for tiny scripts</td>
+</tr>
+<tr class="odd">
+<td><code>DATA_CONTRACTS.md</code></td>
+<td>What data enters, leaves, or passes between components, and what
+does it mean?</td>
+<td><strong>Any project with structured data exchange, files, APIs,
+configuration or structured LLM output</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Copy and paste:</strong></p>
+<blockquote>
+<p>Using <code>PROJECT_SPEC.md</code>, draft
+<code>ARCHITECTURE.md</code> (system parts, important invariants and
+technology decisions). If there is a user interface, also draft
+<code>DESIGN.md</code> (design tokens, layout, components, behavior for
+loading/errors, responsiveness and accessibility). Identify whether the
+project has structured data inputs/outputs; if so, draft
+<code>DATA_CONTRACTS.md</code> (data producers, consumers, formats,
+semantics and validation rules). Keep these documents appropriate to the
+project's size. If something does not apply, say why. Flag
+contradictions among the documents before I approve them.</p>
+</blockquote>
+<p>For a simple command-line script, <code>DESIGN.md</code> may be
+<strong>Not applicable</strong> in the planning checklist and need not
+exist. A tiny script may record its few technical rules directly in
+<code>AGENTS.md</code> and skip a separate <code>ARCHITECTURE.md</code>;
+for nontrivial systems, keep it explicit.</p>
+<p><strong>If you create <code>DESIGN.md</code>:</strong> Ask for actual
+values, not vague adjectives. For example, include YAML front matter or
+a table containing hex color tokens, font stacks, spacing scale and
+corner radii. Add layout, components, keyboard accessibility,
+loading/error states and responsive rules. This prevents one agent
+session from changing the design unintentionally in the next. Keep it
+short for a small UI.</p>
+<p><strong>Result:</strong> Approved rule documents appropriate to your
+project.</p>
+<h3
+id="step-5--define-machine-checkable-data-contracts-when-needed">STEP 5
+— Define machine-checkable data contracts (when needed)</h3>
+<p>If your project receives or produces structured data, decide
+<strong>exactly what shape it has before writing the modules that
+consume it</strong>. Examples: CSV imports, API requests and responses,
+JSON config, messages between modules, and structured LLM responses.</p>
+<p>A <strong>JSON Schema</strong> describes constraints on JSON data. It
+can specify names, types, required fields, allowed values, numeric
+bounds and conditional structure. <strong>It does not by itself prove
+every business rule</strong> (such as an actuarial formula, uniqueness
+across database records, or equality between two separately stored
+totals). Use code/tests for those extra rules. For CSV, binary, database
+tables or other formats, document their native contract too; a JSON
+Schema is not automatically the right format for everything.</p>
+<p><strong>Copy and paste:</strong></p>
+<blockquote>
+<p>From <code>PROJECT_SPEC.md</code>, <code>ARCHITECTURE.md</code> and
+<code>DATA_CONTRACTS.md</code>, inventory each data producer, consumer,
+input, output, and transformation. For JSON interfaces, create schemas
+in <code>schemas/</code> using an explicitly stated JSON Schema draft
+(prefer Draft 2020-12 unless my tools require another). Specify required
+fields, types, enums, nullability, units, dates, IDs, ranges, optional
+fields and error behavior. For non-JSON formats, document an equivalent
+contract. Generate <strong>synthetic</strong> valid, invalid and
+boundary examples and identify rules requiring additional code-based
+tests. Do not invent field names or domain semantics; list unresolved
+questions. Explain how contracts will be validated and versioned.</p>
+</blockquote>
+<p><strong>Suggested small structure (only what is needed):</strong></p>
+<pre class="text"><code>schemas/
+  inputs/
+  outputs/
+  config/
+  examples/valid/
+  examples/invalid/
+tests/contracts/</code></pre>
+<p>Only create subfolders that your project actually uses. For example,
+an API project could use
+<code>schemas/api/create-order.schema.json</code>, and an
+agent-configuration project could use
+<code>schemas/config/opencode.schema.json</code>. Do not force JSON
+Schema onto CSV or relational data; use an appropriate format-specific
+contract. Establish a compatibility policy: changes that break an
+existing producer or consumer require explicit review, migration or
+coordinated release. Decide whether contract versions are carried by
+filenames, schema IDs, API versions or another clear mechanism.</p>
+<p><strong>Result:</strong> Approved <code>DATA_CONTRACTS.md</code>,
+relevant schema files (for example
+<code>schemas/inputs/import.schema.json</code>), synthetic examples and
+a validation plan. If there is no structured data exchange, record
+<strong>Not applicable</strong>.</p>
+<hr />
+<h2 id="phase-b--choose-agent-skills-and-mcp-connections">PHASE B —
+Choose agent skills and MCP connections</h2>
+<p><strong>Important distinction:</strong> In this phase you are
+<strong>selecting and reviewing</strong> tools. Project-local
+installation will happen <strong>after the folder and Git repository
+exist</strong>. This avoids a common ordering problem.</p>
+<h3 id="step-6--review-a-baseline-set-of-reusable-skills">STEP 6 —
+Review a baseline set of reusable skills</h3>
+<p>These are <strong>candidates to consider for nearly every
+project</strong>, not an instruction to install all of them
+automatically. Verify their current names and sources before installing;
+upstream repositories may change.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Skill</th>
+<th>Appropriate usage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>grill-me</code> <strong>or</strong>
+<code>grill-with-docs</code></td>
+<td>Challenge requirements. Use <strong>one main interviewing
+approach</strong>; <code>grill-with-docs</code> is especially suitable
+once project files exist and decisions should be documented.</td>
+</tr>
+<tr class="even">
+<td><code>find-skills</code></td>
+<td>Discover skills for a newly identified project need. Discovery
+<strong>does not</strong> authorize automatic installation.</td>
+</tr>
+<tr class="odd">
+<td><code>to-prd</code> → <code>to-issues</code></td>
+<td>Turn approved requirements into a Product Requirements Document
+(PRD), then actionable issues. Run <code>to-issues</code> <strong>only
+after</strong> approving the PRD and preparing an issue tracker.</td>
+</tr>
+<tr class="even">
+<td><code>improve-codebase-architecture</code></td>
+<td>Review/refactor an <strong>existing</strong> body of code.
+<strong>Do not</strong> run as a mandatory refactor on an empty
+scaffold.</td>
+</tr>
+<tr class="odd">
+<td><code>setup-matt-pocock-skills</code></td>
+<td>Configure the supporting workflow in a suitable, initialized
+repository, if you use that toolset.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>To inspect what's actually offered (do not install
+blindly):</strong></p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> skills@latest add mattpocock/skills <span class="at">--list</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> skills@latest add vercel-labs/skills <span class="at">--list</span></span></code></pre></div>
+<p><strong>Example targeted install commands</strong> (run <strong>after
+Step 12</strong>, inside the new project, if approved and supported by
+your coding agent):</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> skills@latest add mattpocock/skills <span class="at">--skill</span> grill-with-docs</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> skills@latest add vercel-labs/skills <span class="at">--skill</span> find-skills</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> skills@latest add mattpocock/skills <span class="at">--skill</span> to-prd <span class="at">--skill</span> to-issues</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> skills@latest add mattpocock/skills <span class="at">--skill</span> improve-codebase-architecture</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> skills@latest add mattpocock/skills <span class="at">--skill</span> setup-matt-pocock-skills</span></code></pre></div>
+<p><strong>Optional alternative</strong> to
+<code>grill-with-docs</code>:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> skills@latest add mattpocock/skills <span class="at">--skill</span> grill-me</span></code></pre></div>
+<p>The name <code>prd-to-issues</code> may describe the desired
+workflow; the <strong>two skills shown above</strong> are
+<code>to-prd</code> and <code>to-issues</code>. An agent may expose
+skills as slash commands (such as <code>/to-prd</code>), as a named
+skill, or through another interface. <strong>Ask your agent how to
+invoke the installed skill; do not assume all agents support identical
+slash commands.</strong></p>
+<p><strong>References:</strong> <a
+href="https://skills.sh/mattpocock/skills">https://skills.sh/mattpocock/skills</a>
+· <a
+href="https://skills.sh/vercel-labs/skills/find-skills">https://skills.sh/vercel-labs/skills/find-skills</a></p>
+<h3
+id="step-7--add-your-required-skills-then-seek-optional-suggestions">STEP
+7 — Add YOUR required skills, then seek optional suggestions</h3>
+<p><strong>Copy and paste:</strong></p>
+<blockquote>
+<p>The skills I require are: [LIST NAMES, REPOSITORIES OR LINKS]. Keep
+my choices separate from optional recommendations. Check compatibility
+with my chosen coding agent. Recommend only additional skills that serve
+a distinct purpose. Explain when each should be used; do not install
+anything yet.</p>
+</blockquote>
+<p><strong>Where skills live:</strong> A skill can be installed globally
+in your agent environment (portable across repositories) or locally for
+a specific project. Do not copy a global skill into each project unless
+your agent requires it or you deliberately need a pinned,
+project-specific version. Each local skill normally has its own
+<code>SKILL.md</code>, for example
+<code>skills/release-checklist/SKILL.md</code>. Keep a
+source/version/install-scope inventory in <code>SKILLS.md</code>.</p>
+<p><strong>Result:</strong> One proposed skill manifest:
+<strong>required by user</strong>, <strong>recommended</strong>,
+<strong>accepted/rejected</strong>, <strong>reason</strong>,
+<strong>installation source</strong>, <strong>when to invoke</strong>.
+This will become <code>SKILLS.md</code>.</p>
+<h3 id="step-8--audit-skill-conflicts-before-installing">STEP 8 — Audit
+skill conflicts before installing</h3>
+<p><strong>Copy and paste:</strong></p>
+<blockquote>
+<p>Examine documentation and configuration for every selected skill.
+Identify duplicates, contradictory instructions, overlapping
+responsibilities, dependency/version mismatches, permissions, and
+competing configuration files. Write
+<code>SKILL_CONFLICT_REPORT.md</code> with columns: Skill A, Skill B,
+evidence, severity (Critical/Moderate/Minor), recommended resolution,
+and status. Preserve user-required skills when technically and safely
+possible; ask me about substitutions. Separate <strong>verified</strong>
+conflicts from <strong>potential</strong> conflicts. If none are found,
+state 'No skill conflicts detected' and specify what was checked. Do not
+install skills with unresolved critical conflicts.</p>
+</blockquote>
+<p><strong>Result:</strong> An accepted
+<code>SKILL_CONFLICT_REPORT.md</code>. Compatible overlaps need not be
+removed; assign distinct responsibilities when useful.</p>
+<h3
+id="step-9--list-your-mcp-servers-then-consider-optional-suggestions">STEP
+9 — List YOUR MCP servers, then consider optional suggestions</h3>
+<p>An MCP server gives the coding agent access to capabilities such as
+repository operations, databases, external services, or documentation.
+<strong>MCP is optional:</strong> a simple offline script may not need
+any server.</p>
+<p><strong>Copy and paste:</strong></p>
+<blockquote>
+<p>My required MCP servers are: [LIST, OR 'none']. State what each
+server connects to, which operations I expect, and whether the chosen
+coding agent supports it. Suggest only complementary servers, including
+their official sources and required permissions. Do not install or
+authorize them yet.</p>
+</blockquote>
+<p><strong>Result:</strong> An approved <code>MCP_SERVERS.md</code>
+plan, or <strong>No MCP servers needed</strong>.</p>
+<h3 id="step-10--audit-mcp-conflicts-and-permissions">STEP 10 — Audit
+MCP conflicts and permissions</h3>
+<p><strong>Copy and paste:</strong></p>
+<blockquote>
+<p>Audit every selected MCP server for duplicate tool names, competing
+writes, incompatible runtimes, transports, versions, ports,
+authentication, file/network access and excessive permissions. Write
+<code>MCP_CONFLICT_REPORT.md</code> with evidence, severity, resolution
+and verification status. Do not enable unresolved critical conflicts. Do
+not request secrets in chat or place credentials in repository
+files.</p>
+</blockquote>
+<p><strong>Result:</strong> An approved
+<code>MCP_CONFLICT_REPORT.md</code>, or a short <strong>Not
+applicable</strong> entry if there are no MCP servers. Remember that
+merely reviewing configuration does not prove the connection works.</p>
+<hr />
+<h2 id="phase-c--build-the-initial-project-folder">PHASE C — Build the
+initial project folder</h2>
+<h3 id="step-11--ask-for-a-scaffold-script-and-starter-files">STEP 11 —
+Ask for a scaffold script and starter files</h3>
+<p>The script should <strong>create real files</strong> and be safe to
+rerun without silently destroying your edits. It should <strong>not
+automatically execute unreviewed third-party installs</strong>, connect
+accounts, or embed secrets. Keep installation commands in an explicit
+checklist or a separate reviewed setup script.</p>
+<p><strong>Copy and paste:</strong></p>
+<blockquote>
+<p>Generate <code>scripts/scaffold.sh</code> for my approved project and
+selected stack. It must create a minimal, working starter project and
+place the actual approved contents into <code>PROJECT_SPEC.md</code>,
+<code>ARCHITECTURE.md</code>, <code>DESIGN.md</code> (if applicable),
+<code>DATA_CONTRACTS.md</code> and <code>schemas/</code> (if
+applicable), plus <code>README.md</code>, <code>SKILLS.md</code>,
+<code>MCP_SERVERS.md</code>, <code>SKILL_CONFLICT_REPORT.md</code>, and
+<code>MCP_CONFLICT_REPORT.md</code>. Add a suitable
+<code>.gitignore</code>, a minimal smoke test, and
+<code>tests/contracts/</code> if contracts exist. Do not create
+irrelevant directories. Do not overwrite edited files on rerun. Include
+instructions for prerequisite installation and the exact commands to run
+and test the starter app. Put reviewed, project-local skill and MCP
+setup instructions in a separate
+<code>scripts/setup-agent-tools.sh</code> when needed; never store
+secrets. Explain any agent-specific differences. Output a complete
+downloadable script and necessary files, not placeholders disguised as
+finished content.</p>
+</blockquote>
+<p>The generated tree might look like this; <strong>your project can be
+simpler or larger</strong>. <code>AGENTS.md</code> should not be blindly
+generated before real files exist. Document any global skills in
+<code>SKILLS.md</code>; include <code>skills/</code> only if you
+actually maintain project-local skills:</p>
+<pre class="text"><code>my-project/
+├── README.md
+├── PROJECT_SPEC.md
+├── ARCHITECTURE.md
+├── DESIGN.md                   # UI projects only
+├── DATA_CONTRACTS.md           # structured data projects only
+├── AGENTS.md                   # created/reviewed with agent later
+├── SKILLS.md
+├── MCP_SERVERS.md
+├── SKILL_CONFLICT_REPORT.md
+├── MCP_CONFLICT_REPORT.md
+├── schemas/                    # only when needed
+├── skills/                     # only project-local skills, if needed
+│   └── release-checklist/
+│       └── SKILL.md
+├── tests/                      # minimal smoke/contract tests
+├── scripts/
+│   ├── scaffold.sh
+│   └── setup-agent-tools.sh    # only when needed
+└── src/                        # or stack-appropriate entry point</code></pre>
+<p><strong>Result:</strong> Downloadable scaffold script, reviewed
+contents and clear execution instructions.</p>
+<h3
+id="step-12--create-the-folder-run-the-scaffold-and-check-the-result">STEP
+12 — Create the folder, run the scaffold, and check the result</h3>
+<p>Save <code>scaffold.sh</code> somewhere accessible, create a folder
+and <strong>run the script from that folder</strong>. One possible Bash
+workflow:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> my-project</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> my-project</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> scripts</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy the downloaded scaffold.sh into scripts/ here.</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/scaffold.sh</span></code></pre></div>
+<p>If the generated script expects another location or arguments, follow
+<strong>its</strong> documented invocation instead. Then list files and
+run the generated smoke test. Do not proceed if the scaffold did not
+create the expected files or a runnable starting point.</p>
+<p><strong>Result:</strong> A real directory containing working starter
+files and the approved documentation.</p>
+<h3 id="step-13--start-git-and-save-the-initial-baseline">STEP 13 —
+Start Git and save the initial baseline</h3>
+<p>From the project root:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Check .gitignore and ensure no tokens, private data or local secrets are staged.</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;chore: initial project scaffold&quot;</span></span></code></pre></div>
+<p>Configure your Git identity if Git requests it. Creating a
+<strong>remote</strong> GitHub repository and pushing is a separate,
+optional step—ask the coding agent to help when you are ready. A local
+commit is already a useful recovery point.</p>
+<p><strong>Result:</strong> Your first version-controlled baseline.
+<strong>Keep <code>scripts/scaffold.sh</code> in Git</strong>, so you
+can understand how the initial folder was created. The script is a
+historical setup recipe, not a command to recreate or overwrite an
+evolving project tree. If you later extend it, make changes safe and
+intentional.</p>
+<h3
+id="step-14--install-approved-skills-and-configure-approved-mcp-servers">STEP
+14 — Install approved skills and configure approved MCP servers</h3>
+<p>Now that the directory exists, use the <strong>reviewed</strong>
+commands from Steps 6–10. Install project-local tools from the project
+root. If you use <code>setup-matt-pocock-skills</code>, invoke it
+<strong>after Git initialization</strong>, subject to the tool's current
+requirements. Global installations may have been completed earlier.</p>
+<p><strong>Copy and paste to your coding agent:</strong></p>
+<blockquote>
+<p>Follow <code>SKILLS.md</code>, <code>MCP_SERVERS.md</code> and the
+two conflict reports. Show me the approved installation commands and
+verify their sources before executing them. Install only approved
+project-local skills, configure only approved MCP servers, and use
+environment variables or a secure secrets store for credentials. Verify
+each skill is discoverable and each MCP server actually connects and
+exposes the expected tools. Record successes, failures and exact
+versions/revisions when available. Do not claim success if a check was
+not run.</p>
+</blockquote>
+<p><strong>Result:</strong> Verified agent tools, or an explicit list of
+unavailable tools and what remains to be done. <strong>Some MCP servers
+may require you to authorize accounts yourself.</strong></p>
+<h3
+id="step-15--open-the-coding-agent-inside-the-project-and-initialize-instructions">STEP
+15 — Open the coding agent inside the project and initialize
+instructions</h3>
+<p>Start Codex, OpenCode, Claude Code or another agent <strong>with the
+project folder as its workspace</strong>. Use the agent's initialization
+feature if one is available; some use <code>/init</code>, others use
+different commands or files. <strong>Ask your agent instead of assuming
+<code>/init</code> is universal.</strong></p>
+<p><strong>Copy and paste:</strong></p>
+<blockquote>
+<p>Inspect the files that actually exist in this repository. Create or
+update the agent instruction file used by this coding agent. Prefer a
+concise <code>AGENTS.md</code> as a shared reference where supported;
+create the specific file or import directive required by this actual
+agent. Do not assume <code>AGENTS.md</code> is automatically read by
+every tool. Reference <code>PROJECT_SPEC.md</code>,
+<code>ARCHITECTURE.md</code>, <code>DESIGN.md</code> (if present),
+<code>DATA_CONTRACTS.md</code> and <code>schemas/</code> (if present),
+<code>SKILLS.md</code>, <code>MCP_SERVERS.md</code>, and both conflict
+reports. Explain the exact build, test and validation commands; state
+when to use each approved skill or MCP tool. Do not copy large skill
+instructions into <code>AGENTS.md</code>, fabricate missing files, or
+include credentials. Preserve important user-written instructions.</p>
+</blockquote>
+<p><strong>Result:</strong> An agent that knows the repository rules and
+can locate the right documentation. Keep the <code>README.md</code>
+human-facing and put operational instructions in <code>AGENTS.md</code>,
+instead of duplicating them in both. <strong>Initializing an agent is
+not proof that all tools work—verify discovery and connections
+separately.</strong></p>
+<h3 id="step-16--test-the-baseline-and-commit-the-agent-setup">STEP 16 —
+Test the baseline and commit the agent setup</h3>
+<p>Ask the agent to run the app's smoke test, schema validation (where
+applicable), and any existing unit tests. Confirm that the repository
+instructions reference the right files. Then:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;chore: configure agent context and contracts&quot;</span></span></code></pre></div>
+<p>If nothing changed since the last commit, Git correctly reports
+nothing to commit.</p>
+<p><strong>Result:</strong> A reproducible, tested starting point for
+development alongside your coding agent.</p>
+<hr />
+<h2 id="phase-d--build-and-keep-the-project-healthy">PHASE D — Build and
+keep the project healthy</h2>
+<h3 id="step-17--plan-the-first-small-development-task">STEP 17 — Plan
+the first small development task</h3>
+<p>The initial scaffold is <strong>not</strong> a complete application.
+Ask the agent to turn the approved specification into small changes with
+tests. If you selected Matt Pocock's workflow, use <code>to-prd</code>
+to refine the PRD and <code>to-issues</code> <strong>after</strong> PRD
+approval and issue-tracker setup. Otherwise, a simple task checklist is
+sufficient. A beginner need not use an issue tracker for a tiny
+script.</p>
+<p><strong>Copy and paste:</strong></p>
+<blockquote>
+<p>Read the repository's project rules. Propose the smallest useful
+feature to build next, with acceptance criteria and a way to test it.
+Identify which files and data contracts it affects. Implement one
+reviewable change at a time, run appropriate tests, summarize what
+changed, and commit only after I approve the result or give you explicit
+authority to commit.</p>
+</blockquote>
+<p><strong>Result:</strong> An incremental development cycle, not one
+giant untestable generation.</p>
+<h3
+id="step-18--let-the-project-tree-evolve-but-maintain-the-contracts-and-instructions">STEP
+18 — Let the project tree evolve, but maintain the contracts and
+instructions</h3>
+<p>As you build, the agent may add folders, rename modules, change
+dependencies or propose new architecture. <strong>This is
+expected.</strong> <code>scripts/scaffold.sh</code> records the
+<strong>initial setup</strong>; it is not an order to reset the project
+to its original shape. Keep <code>README.md</code>,
+<code>ARCHITECTURE.md</code>, <code>DESIGN.md</code>, and
+<code>DATA_CONTRACTS.md</code> aligned with the software that actually
+exists.</p>
+<p><strong>Before accepting a change, ask:</strong></p>
+<blockquote>
+<p>Does this change affect the architecture, UI rules, data
+producers/consumers, schemas, skills, MCP servers, permissions or build
+commands? If so, update the relevant documents and tests in the same
+change. Check schema compatibility and migrations before changing data
+interfaces. Re-run conflict audits if skills or MCP servers changed.
+Show me the verification results and any unresolved risks.</p>
+</blockquote>
+<p>Re-run agent initialization or update <code>AGENTS.md</code> when the
+structure changes materially; <strong>review its output because
+automated initialization can overwrite custom guidance</strong>. Use
+<code>improve-codebase-architecture</code> only after meaningful code
+exists and you want an architectural review. Commit useful checkpoints
+and preserve history.</p>
+<p><strong>Result:</strong> A growing project that remains
+understandable to both you and future agent sessions.</p>
+<hr />
+<h2
+id="appendix--example-prompts-for-maintaining-the-agent-context">Appendix
+— example prompts for maintaining the agent context</h2>
+<p>When creating or updating <code>AGENTS.md</code>, a useful concise
+instruction is:</p>
+<blockquote>
+<p>Read <code>PROJECT_SPEC.md</code> for scope,
+<code>ARCHITECTURE.md</code> for system invariants,
+<code>DESIGN.md</code> for UI conventions (if present),
+<code>DATA_CONTRACTS.md</code> and <code>schemas/</code> for data
+interfaces (if present), and <code>SKILLS.md</code> /
+<code>MCP_SERVERS.md</code> for approved agent capabilities. Read
+<code>scripts/scaffold.sh</code> only when investigating or changing
+setup. Use the actual build and test commands in this repository; never
+invent missing files or commit secrets.</p>
+</blockquote>
+<p>A basic project-local skill can be stored as
+<code>skills/&lt;skill-name&gt;/SKILL.md</code> with a clear name,
+description, when to invoke it, ordered procedure and verification
+checks. Whether the agent auto-discovers that directory is
+<strong>tool-specific</strong>; confirm the required path with the
+agent's documentation. Install sources only after reviewing their
+content and permissions.</p>
+<p>When you change the project tree, <strong>update references</strong>,
+but do not routinely overwrite manually maintained documents by
+re-running an agent's initialization command. Review diffs and commit
+the changes.</p>
+<hr />
+<h2 id="quick-completion-checklist">Quick completion checklist</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />My first-version goals and
+boundaries are written in <code>PROJECT_SPEC.md</code>.</label></li>
+<li><label><input type="checkbox" /><code>ARCHITECTURE.md</code> states
+real system rules; <code>DESIGN.md</code> exists if a UI is
+needed.</label></li>
+<li><label><input type="checkbox" />Data producers/consumers are
+identified; schemas and synthetic tests exist where
+appropriate.</label></li>
+<li><label><input type="checkbox" />My required skills and MCP servers
+are distinguished from optional recommendations.</label></li>
+<li><label><input type="checkbox" />Skill/MCP conflicts were reviewed;
+critical conflicts are resolved before installation.</label></li>
+<li><label><input type="checkbox" />The scaffold creates real files and
+a runnable starter project.</label></li><li><label><input type="checkbox" />Git has at least one baseline
+commit; no secrets are committed.</label></li>
+<li><label><input type="checkbox" />My chosen coding agent can read the
+project rules and invoke approved tools.</label></li>
+<li><label><input type="checkbox" />The baseline tests pass, or failures
+and blockers are explicitly documented.</label></li>
+<li><label><input type="checkbox" />I understand that the initial tree
+is a starting point, not a permanent structure.</label></li>
+</ul>
+<h2 id="the-entire-process-in-one-line">The entire process in one
+line</h2>
+<p><strong>Idea → specification → clarify → design/architecture/data
+contracts → choose and audit skills/MCP → scaffold → Git baseline →
+configure tools → initialize agent → verify → build small features →
+update documents, schemas, tests and Git as the project
+evolves.</strong></p>
+<hr />
+<h2 id="version-control-of-this-reusable-standard">Version control of
+THIS reusable standard</h2>
+<p>The guide itself is a <strong>separate living standard</strong>, not
+the version number of any project you start with it.</p>
+<ul>
+<li>Use <code>MAJOR.MINOR.PATCH</code>: <strong>MAJOR</strong> for
+incompatible major workflow changes; <strong>MINOR</strong> for new
+compatible phases or guidance; <strong>PATCH</strong> for editorial
+corrections.</li>
+<li>Every release changes the version in the <strong>title</strong>,
+<strong>filename</strong> and <strong>metadata</strong>, and adds an
+entry to the revision history below. Preserve prior versions in Git or a
+versioned archive. Do not overwrite the old release under its old
+versioned name.</li>
+<li>Suggested Git commit: <code>docs(standard): release v1.2.0</code>;
+optional tag: <code>project-standard-v1.2.0</code>.</li>
+<li>The standard can be used with different operating systems, agents
+and programming languages. Agent-specific commands may change; check
+official instructions before executing them.</li>
+</ul>
+<h3 id="revision-history">Revision history</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Version</th>
+<th>Date</th>
+<th>Changes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>1.2.0</strong></td>
+<td>2026-10-18</td>
+<td>Merged Project Bootstrap Kit concepts into one beginner guide: file
+responsibility matrix, global vs local skills, concrete design tokens,
+minimum viable configurations, agent-file portability, scaffold
+regeneration safeguards and explicit human/agent documentation
+separation.</td>
+</tr>
+<tr class="even">
+<td><strong>1.1.0</strong></td>
+<td>2026-10-18</td>
+<td>Reorganized into a literal beginner workflow; added
+<code>PROJECT_SPEC.md</code>, explicit conditional
+<code>DESIGN.md</code>, <code>DATA_CONTRACTS.md</code>, JSON Schema
+design/verification, clearer tool install timing, real scaffold checks,
+agent initialization and evolving-project maintenance.</td>
+</tr>
+<tr class="odd">
+<td><strong>1.0.0</strong></td>
+<td>2026-10-18</td>
+<td>First versioned baseline: reusable skills, MCP selection and
+installation, conflict audits, scaffolding, agent context and Git
+guidance.</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
