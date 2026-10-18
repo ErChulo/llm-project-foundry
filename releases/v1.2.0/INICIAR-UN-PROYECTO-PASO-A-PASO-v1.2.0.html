@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>INICIAR-UN-PROYECTO-PASO-A-PASO-v1.2.0</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<h1 id="cómo-iniciar-un-proyecto-con-un-llm--paso-a-paso-v120">Cómo
+iniciar un proyecto con un LLM — Paso a paso (v1.2.0)</h1>
+<p><strong>Versión:</strong> <code>1.2.0</code><br />
+<strong>Fecha:</strong> 2026-10-18<br />
+<strong>Archivo:</strong>
+<code>INICIAR-UN-PROYECTO-PASO-A-PASO-v1.2.0.md</code><br />
+<strong>Propósito:</strong> Un procedimiento repetible, comprensible
+para principiantes, para iniciar un <strong>proyecto de software pequeño
+o grande</strong> que desarrollarás <em>junto con</em> un agente de
+programación, como Codex, OpenCode o Claude Code.</p>
+<blockquote>
+<p><strong>Qué hace esta guía:</strong> Te lleva desde una idea hasta
+una carpeta de proyecto real, con control de versiones (el
+<strong>andamiaje inicial</strong>, o <em>scaffold</em>), instrucciones
+útiles, contratos de datos cuando correspondan, habilidades
+(<em>skills</em>) aprobadas y servidores MCP aprobados. <strong>No
+establece una estructura de carpetas permanente.</strong> El proyecto y
+su documentación evolucionarán mientras tú y tu agente lo
+desarrollan.</p>
+</blockquote>
+<h2 id="antes-de-comenzar">Antes de comenzar</h2>
+<ul>
+<li><strong>Tú</strong> decides qué quieres conseguir y apruebas las
+decisiones importantes. <strong>El LLM</strong> ayuda a planificar y
+redactar archivos. <strong>El agente de programación</strong> trabaja en
+la carpeta real del proyecto y puede construir y probar el
+software.</li>
+<li>Un <strong>chat con un LLM</strong> ayuda a redactar planes incluso
+antes de crear la carpeta. Un <strong>agente de programación</strong>
+(Codex, OpenCode, Claude Code, etc.) normalmente trabaja con los
+archivos de esa carpeta.</li>
+<li><strong>Skill o habilidad:</strong> instrucciones o procedimientos
+reutilizables para un agente. <strong>Servidor MCP:</strong> conexión
+que pone herramientas o datos a disposición del agente. No son
+equivalentes.</li>
+<li><strong>Scaffold o andamiaje:</strong> directorio, archivos,
+configuración y pruebas iniciales; no es la aplicación terminada.</li>
+<li>Necesitas una terminal, Git y un agente de programación. Algunas
+habilidades requieren Node.js/npm (<code>npx</code>). Instala solamente
+las herramientas que necesite la tecnología seleccionada. Los comandos
+de esta guía utilizan Bash (Linux/macOS/Git Bash/WSL); solicita
+equivalentes para PowerShell/CMD si los necesitas.</li>
+<li><strong>Sigue los pasos en orden.</strong> Cuando diga <em>si
+corresponde</em>, anota expresamente <strong>No aplica</strong> y
+continúa. Un proyecto pequeño no necesita obligatoriamente una
+habilidad, un servidor MCP, una base de datos, una interfaz gráfica o
+una biblioteca de validación.</li>
+<li><strong>Nunca incluyas contraseñas, tokens, credenciales, datos
+confidenciales de producción o datos personales en prompts, documentos o
+Git.</strong> Utiliza ejemplos sintéticos o anonimizados.</li>
+</ul>
+<hr />
+<h2
+id="elige-la-configuración-más-pequeña-que-sirva-para-tu-proyecto">Elige
+la configuración más pequeña que sirva para tu proyecto</h2>
+<p><strong>No crees archivos solo para cumplir con una
+plantilla.</strong> Los pasos se aplican a todos los proyectos, pero la
+documentación debe ser proporcional al trabajo. Si algo es opcional,
+escribe <strong>No aplica</strong> en tus notas de planificación y
+continúa.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Tipo de proyecto</th>
+<th>Empieza con</th>
+<th>Añade cuando se necesite</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Script pequeño o experimento</td>
+<td><code>README.md</code>, <code>AGENTS.md</code>, programa ejecutable
+y Git</td>
+<td><code>PROJECT_SPEC.md</code> breve; <code>ARCHITECTURE.md</code> si
+existen reglas importantes</td>
+</tr>
+<tr class="even">
+<td>Aplicación con interfaz de usuario</td>
+<td>Lo anterior, más <code>DESIGN.md</code></td>
+<td>Pantallas, reglas de componentes y accesibilidad</td>
+</tr>
+<tr class="odd">
+<td>Proyecto de datos, importación, API o salida de LLM</td>
+<td>Lo anterior, más <code>DATA_CONTRACTS.md</code>,
+<code>schemas/</code> u otros contratos pertinentes y pruebas de
+validación</td>
+<td>Migraciones y verificaciones de compatibilidad</td>
+</tr>
+<tr class="even">
+<td>Aplicación compleja o colaborativa</td>
+<td>Lo anterior, más <code>ARCHITECTURE.md</code>, habilidades e
+integraciones apropiadas</td>
+<td>Más pruebas, CI, registros de decisiones y revisiones</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Cómo usar esta guía:</strong> Sigue los pasos numerados.
+<em>Tú</em> apruebas las decisiones; el <em>chat de planificación</em>
+redacta las especificaciones; tu <em>agente de programación</em> crea y
+modifica los archivos del repositorio real. Puedes adaptar cada prompt.
+Cada paso indica su resultado esperado. No necesitas preparar una
+montaña de documentos para un script pequeño.</p>
+<h2 id="para-qué-sirve-cada-archivo-del-proyecto">¿Para qué sirve cada
+archivo del proyecto?</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Archivo o carpeta</th>
+<th>Destinatario</th>
+<th>Función</th>
+<th>Cuándo crear o actualizar</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>README.md</code></td>
+<td>Personas</td>
+<td>Qué hace el proyecto y cómo ponerlo en marcha</td>
+<td>Andamiaje inicial y cambios para usuarios</td>
+</tr>
+<tr class="even">
+<td><code>PROJECT_SPEC.md</code></td>
+<td>Tú y el agente</td>
+<td>Alcance, criterios de aceptación y objetivos</td>
+<td>Planificación y cambios de requisitos</td>
+</tr>
+<tr class="odd">
+<td><code>AGENTS.md</code></td>
+<td>Agentes de programación</td>
+<td>Comandos, convenciones, restricciones y referencias a otras
+reglas</td>
+<td>Después de crear archivos reales y cuando cambien los procesos</td>
+</tr>
+<tr class="even">
+<td><code>DESIGN.md</code></td>
+<td>Agente / participantes de UI</td>
+<td>Valores concretos de diseño y reglas de interacción</td>
+<td>Cuando existe o cambia una interfaz</td>
+</tr>
+<tr class="odd">
+<td><code>ARCHITECTURE.md</code></td>
+<td>Agente / responsables técnicos</td>
+<td>Reglas invariantes y razones de diseño que no son evidentes</td>
+<td>Cuando cambien decisiones arquitectónicas</td>
+</tr>
+<tr class="even">
+<td><code>DATA_CONTRACTS.md</code></td>
+<td>Productores, consumidores y agente</td>
+<td>Significado y compatibilidad de los datos intercambiados</td>
+<td>Cuando cambien las interfaces de datos</td>
+</tr>
+<tr class="odd">
+<td><code>schemas/</code></td>
+<td>Programas y validadores</td>
+<td>Contratos JSON legibles por máquinas, cuando corresponda</td>
+<td>Cuando exista o cambie una interfaz JSON estructurada</td>
+</tr>
+<tr class="even">
+<td><code>skills/</code></td>
+<td>Agente</td>
+<td>Procedimientos reutilizables <strong>locales del proyecto</strong>,
+cada uno con <code>SKILL.md</code></td>
+<td>Cuando se necesite un procedimiento repetitivo particular</td>
+</tr>
+<tr class="odd">
+<td><code>SKILLS.md</code></td>
+<td>Tú y el agente</td>
+<td>Inventario de habilidades seleccionadas, instaladas y globales</td>
+<td>Cuando cambien habilidades o versiones</td>
+</tr>
+<tr class="even">
+<td><code>MCP_SERVERS.md</code></td>
+<td>Tú y el agente</td>
+<td>Inventario, permisos y conexión de MCP, <strong>sin
+secretos</strong></td>
+<td>Cuando cambien los servidores o su configuración</td>
+</tr>
+<tr class="odd">
+<td><code>scripts/scaffold.sh</code></td>
+<td>Tú y el agente</td>
+<td>Configuración inicial reproducible, no estructura permanente</td>
+<td>Creación del andamiaje o cambios deliberados de plantilla</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Distinción importante:</strong> <code>README.md</code>
+explica el proyecto a las personas; <code>AGENTS.md</code> indica cómo
+debe trabajar el agente <em>en este repositorio</em>;
+<code>SKILL.md</code> describe un procedimiento reutilizable en
+múltiples repositorios. No es necesario copiar una habilidad global a la
+carpeta <code>skills/</code> de cada proyecto; documenta su nombre,
+origen y forma de uso en <code>SKILLS.md</code>. Algunos agentes
+utilizan otros nombres de archivo o mecanismos de importación: comprueba
+su funcionamiento real, sin suponer que todos cargan
+<code>AGENTS.md</code> automáticamente.</p>
+<h2 id="fase-a--decide-qué-vas-a-construir">FASE A — Decide qué vas a
+construir</h2>
+<h3 id="paso-1--explica-tu-idea-con-palabras-sencillas">PASO 1 — Explica
+tu idea con palabras sencillas</h3>
+<p>Escribe de 2 a 5 oraciones. ¿Qué debe hacer? ¿Quién lo utilizará?
+¿Cuál es el resultado más importante? No necesitas vocabulario
+técnico.</p>
+<p><strong>Tu acción:</strong> Escribe o dicta tu idea aproximada en un
+chat con un LLM.</p>
+<p><strong>Resultado:</strong> Una descripción breve e informal.</p>
+<h3
+id="paso-2--convierte-la-idea-en-una-especificación-pequeña-y-comprobable">PASO
+2 — Convierte la idea en una especificación pequeña y comprobable</h3>
+<p><strong>Copia y pega en el LLM:</strong></p>
+<blockquote>
+<p>Esta es mi idea: [PEGA LA IDEA]. Ayúdame a crear la especificación de
+la primera versión. Describe el propósito, los usuarios previstos, entre
+3 y 6 funciones esenciales, qué queda <em>fuera del alcance</em>, cómo
+comprobaremos que la primera versión funciona, una pila tecnológica
+recomendada y una estructura inicial sencilla de carpetas. Separa los
+hechos que proporcioné de tus suposiciones. Pregunta solamente por
+decisiones que alteren sustancialmente el plan. Guarda la especificación
+aprobada como <code>PROJECT_SPEC.md</code>.</p>
+</blockquote>
+<p>Lee, corrige y aprueba el borrador. Empieza por la <strong>versión
+útil más pequeña</strong>; podrás añadir funciones después.</p>
+<p><strong>Resultado:</strong> <code>PROJECT_SPEC.md</code>
+aprobado.</p>
+<h3 id="paso-3--aclara-requisitos-inciertos-entrevista-crítica">PASO 3 —
+Aclara requisitos inciertos (entrevista crítica)</h3>
+<p>Una habilidad de <em>grilling</em> formula preguntas enfocadas para
+descubrir supuestos ocultos. Puedes hacer la entrevista en el chat
+<strong>sin instalar todavía ninguna habilidad</strong>. Más adelante,
+<code>grill-with-docs</code> puede revisar y documentar las decisiones
+dentro del repositorio.</p>
+<p><strong>Copia y pega:</strong></p>
+<blockquote>
+<p>Entrevístame sobre el proyecto propuesto. Concéntrate en requisitos
+ausentes, supuestos contradictorios, usuarios, entradas y salidas, casos
+extremos, criterios de éxito y restricciones. Haz una sola pregunta
+importante cada vez. Mantén un registro breve de decisiones y actualiza
+<code>PROJECT_SPEC.md</code> después de que apruebe las respuestas.
+Termina cuando el proyecto esté suficientemente claro para crear el
+andamiaje.</p>
+</blockquote>
+<p><strong>Resultado:</strong> Requisitos más claros y un registro breve
+de decisiones o preguntas pendientes. <strong>No tienes que resolver
+todos los detalles futuros de implementación.</strong></p>
+<h3 id="paso-4--redacta-los-tres-documentos-de-reglas-del-proyecto">PASO
+4 — Redacta los tres documentos de reglas del proyecto</h3>
+<p>Describen asuntos distintos. <strong>Crea documentos cortos y útiles,
+no extensos textos especulativos.</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>Documento</th>
+<th>Pregunta que responde</th>
+<th>Cuándo se necesita</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>DESIGN.md</code></td>
+<td>¿Cómo deben verse y comportarse las pantallas?</td>
+<td><strong>Si hay interfaz de usuario</strong> (web, escritorio, móvil
+o interfaz CLI interactiva significativa)</td>
+</tr>
+<tr class="even">
+<td><code>ARCHITECTURE.md</code></td>
+<td>¿Cómo se organiza el sistema y qué reglas nunca deben
+incumplirse?</td>
+<td><strong>Todos los proyectos</strong>; muy breve para scripts
+pequeños</td>
+</tr>
+<tr class="odd">
+<td><code>DATA_CONTRACTS.md</code></td>
+<td>¿Qué datos entran, salen o pasan entre componentes y qué
+significan?</td>
+<td><strong>Proyectos con intercambio estructurado de datos, archivos,
+API, configuración o salida estructurada de LLM</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Copia y pega:</strong></p>
+<blockquote>
+<p>A partir de <code>PROJECT_SPEC.md</code>, redacta
+<code>ARCHITECTURE.md</code> (partes del sistema, invariantes
+importantes y decisiones tecnológicas). Si hay interfaz de usuario,
+redacta también <code>DESIGN.md</code> (valores de diseño, distribución,
+componentes, estados de carga y error, adaptación a pantallas y
+accesibilidad). Determina si hay entradas o salidas de datos
+estructurados; en ese caso, redacta <code>DATA_CONTRACTS.md</code>
+(productores, consumidores, formatos, significado y reglas de
+validación). Ajusta la extensión al tamaño del proyecto. Si algo no
+aplica, explica por qué. Señala contradicciones entre los documentos
+antes de pedirme aprobación.</p>
+</blockquote>
+<p>En un script sencillo sin interfaz, <code>DESIGN.md</code> puede
+marcarse <strong>No aplica</strong> y omitirse. Un script diminuto puede
+registrar sus pocas reglas técnicas directamente en
+<code>AGENTS.md</code> y prescindir de un archivo
+<code>ARCHITECTURE.md</code> independiente; en sistemas no triviales,
+mantenlo explícito.</p>
+<p><strong>Si creas <code>DESIGN.md</code>:</strong> Solicita valores
+concretos, no adjetivos vagos: por ejemplo, metadatos iniciales YAML o
+una tabla con colores hexadecimales, familias tipográficas, escala de
+espaciado y radios de esquinas. Incluye distribución, componentes,
+accesibilidad por teclado, estados de carga/error y comportamiento
+responsivo. Así evitas que una sesión del agente cambie
+involuntariamente el diseño de otra. Para una UI pequeña, sé breve.</p>
+<p><strong>Resultado:</strong> Documentos de reglas adecuados y
+aprobados.</p>
+<h3
+id="paso-5--define-contratos-de-datos-verificables-por-máquinas-cuando-corresponda">PASO
+5 — Define contratos de datos verificables por máquinas (cuando
+corresponda)</h3>
+<p>Si el proyecto recibe o produce datos estructurados, determina
+<strong>su forma exacta antes de programar los módulos que los
+consumirán</strong>. Ejemplos: importaciones CSV, solicitudes y
+respuestas API, configuración JSON, mensajes entre módulos y respuestas
+estructuradas de LLM.</p>
+<p>Un <strong>JSON Schema</strong> describe restricciones sobre datos
+JSON: nombres, tipos, campos obligatorios, valores permitidos, límites
+numéricos y estructuras condicionales. <strong>Por sí solo no demuestra
+todas las reglas del negocio</strong> (por ejemplo, una fórmula
+actuarial, la unicidad entre registros o la igualdad de dos totales
+almacenados por separado). Utiliza código y pruebas adicionales para
+esas reglas. Para CSV, datos binarios, tablas de bases de datos y otros
+formatos, documenta también el contrato nativo correspondiente: JSON
+Schema no siempre es lo adecuado.</p>
+<p><strong>Copia y pega:</strong></p>
+<blockquote>
+<p>Examina <code>PROJECT_SPEC.md</code>, <code>ARCHITECTURE.md</code> y
+<code>DATA_CONTRACTS.md</code> e inventaría cada productor, consumidor,
+entrada, salida y transformación de datos. Para interfaces JSON, crea
+esquemas en <code>schemas/</code>, indicando expresamente la versión de
+JSON Schema (prefiere Draft 2020-12 salvo incompatibilidad con las
+herramientas). Define campos obligatorios, tipos, enumeraciones, valores
+nulos, unidades, fechas, identificadores, rangos, campos opcionales y
+tratamiento de errores. Para formatos distintos de JSON, define un
+contrato equivalente. Genera ejemplos <strong>sintéticos</strong>
+válidos, inválidos y extremos e identifica reglas que requieren pruebas
+programadas adicionales. No inventes nombres de campos ni significados
+técnicos: enumera las dudas. Explica cómo validar y versionar los
+contratos.</p>
+</blockquote>
+<p><strong>Estructura pequeña sugerida (solo lo necesario):</strong></p>
+<pre class="text"><code>schemas/
+  inputs/
+  outputs/
+  config/
+  examples/valid/
+  examples/invalid/
+tests/contracts/</code></pre>
+<p>Crea únicamente las subcarpetas utilizadas. Una API, por ejemplo,
+podría tener <code>schemas/api/create-order.schema.json</code>, y una
+configuración de agente
+<code>schemas/config/opencode.schema.json</code>. No fuerces JSON Schema
+sobre CSV ni sobre datos relacionales: utiliza contratos propios del
+formato. Define una política de compatibilidad: los cambios que rompan
+un productor o consumidor existente requieren revisión, migración o
+publicación coordinada. Determina si la versión del contrato figurará en
+el nombre, el identificador del esquema, la versión API u otro mecanismo
+explícito.</p>
+<p><strong>Resultado:</strong> <code>DATA_CONTRACTS.md</code> aprobado,
+esquemas pertinentes (por ejemplo,
+<code>schemas/inputs/import.schema.json</code>), ejemplos sintéticos y
+plan de validación. Si no hay intercambio estructurado, anota <strong>No
+aplica</strong>.</p>
+<hr />
+<h2 id="fase-b--selecciona-habilidades-del-agente-y-conexiones-mcp">FASE
+B — Selecciona habilidades del agente y conexiones MCP</h2>
+<p><strong>Distinción importante:</strong> En esta fase
+<strong>seleccionas y revisas</strong> las herramientas. La instalación
+local se realizará <strong>después de crear la carpeta y el repositorio
+Git</strong>, para evitar problemas de orden.</p>
+<h3
+id="paso-6--examina-un-conjunto-básico-de-habilidades-reutilizables">PASO
+6 — Examina un conjunto básico de habilidades reutilizables</h3>
+<p>Estas son <strong>candidatas para considerar en casi cualquier
+proyecto</strong>, no una orden de instalarlas todas automáticamente.
+Antes de instalar, comprueba sus nombres y orígenes actuales: los
+repositorios pueden cambiar.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Habilidad</th>
+<th>Uso adecuado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>grill-me</code> <strong>o</strong>
+<code>grill-with-docs</code></td>
+<td>Cuestionar requisitos. Utiliza <strong>una modalidad principal de
+entrevista</strong>; <code>grill-with-docs</code> es especialmente útil
+cuando ya existen archivos y deben documentarse decisiones.</td>
+</tr>
+<tr class="even">
+<td><code>find-skills</code></td>
+<td>Buscar habilidades cuando surja una necesidad. Descubrir una
+habilidad <strong>no autoriza</strong> instalarla automáticamente.</td>
+</tr>
+<tr class="odd">
+<td><code>to-prd</code> → <code>to-issues</code></td>
+<td>Convertir requisitos aprobados en un documento de requisitos de
+producto (PRD), y luego en tareas. Ejecuta <code>to-issues</code>
+<strong>solo después</strong> de aprobar el PRD y preparar un gestor de
+incidencias.</td>
+</tr>
+<tr class="even">
+<td><code>improve-codebase-architecture</code></td>
+<td>Revisar o refactorizar código <strong>ya existente</strong>.
+<strong>No</strong> lo ejecutes obligatoriamente sobre un andamiaje
+vacío.</td>
+</tr>
+<tr class="odd">
+<td><code>setup-matt-pocock-skills</code></td>
+<td>Configurar el flujo auxiliar en un repositorio apropiado, ya
+inicializado, si utilizas ese conjunto.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Para consultar la oferta real (sin instalar a
+ciegas):</strong></p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> skills@latest add mattpocock/skills <span class="at">--list</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> skills@latest add vercel-labs/skills <span class="at">--list</span></span></code></pre></div>
+<p><strong>Comandos de instalación específicos, como ejemplo</strong>
+(ejecuta <strong>después del Paso 12</strong>, dentro del proyecto, solo
+si están aprobados y son compatibles con tu agente):</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> skills@latest add mattpocock/skills <span class="at">--skill</span> grill-with-docs</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> skills@latest add vercel-labs/skills <span class="at">--skill</span> find-skills</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> skills@latest add mattpocock/skills <span class="at">--skill</span> to-prd <span class="at">--skill</span> to-issues</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> skills@latest add mattpocock/skills <span class="at">--skill</span> improve-codebase-architecture</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> skills@latest add mattpocock/skills <span class="at">--skill</span> setup-matt-pocock-skills</span></code></pre></div>
+<p><strong>Alternativa opcional</strong> a
+<code>grill-with-docs</code>:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> skills@latest add mattpocock/skills <span class="at">--skill</span> grill-me</span></code></pre></div>
+<p>El nombre <code>prd-to-issues</code> puede describir el proceso, pero
+las <strong>dos habilidades indicadas</strong> son <code>to-prd</code> y
+<code>to-issues</code>. Según el agente, las habilidades pueden
+ejecutarse con comandos de barra (como <code>/to-prd</code>), por nombre
+u otra interfaz. <strong>Pregunta a tu agente cómo se invocan; no
+supongas que todos utilizan los mismos comandos.</strong></p>
+<p><strong>Referencias:</strong> <a
+href="https://skills.sh/mattpocock/skills">https://skills.sh/mattpocock/skills</a>
+· <a
+href="https://skills.sh/vercel-labs/skills/find-skills">https://skills.sh/vercel-labs/skills/find-skills</a></p>
+<h3
+id="paso-7--añade-tus-habilidades-obligatorias-y-solicita-recomendaciones-opcionales">PASO
+7 — Añade TUS habilidades obligatorias y solicita recomendaciones
+opcionales</h3>
+<p><strong>Copia y pega:</strong></p>
+<blockquote>
+<p>Las habilidades que exijo son: [NOMBRES, REPOSITORIOS O ENLACES].
+Mantén mis elecciones separadas de las recomendaciones opcionales.
+Comprueba que sean compatibles con mi agente de programación. Recomienda
+únicamente habilidades adicionales que aporten funciones distintas.
+Explica cuándo usar cada una; todavía no instales nada.</p>
+</blockquote>
+<p><strong>Dónde se guardan:</strong> Una habilidad puede instalarse
+globalmente para el agente (compartida entre repositorios) o localmente
+en un proyecto. No copies habilidades globales a cada proyecto salvo que
+el agente lo exija o necesites fijar deliberadamente una versión local.
+Cada habilidad local normalmente incluye su <code>SKILL.md</code>; por
+ejemplo <code>skills/release-checklist/SKILL.md</code>. Mantén en
+<code>SKILLS.md</code> un inventario de origen, versión y ámbito de
+instalación.</p>
+<p><strong>Resultado:</strong> Una propuesta única de inventario:
+<strong>exigida por el usuario</strong>, <strong>recomendada</strong>,
+<strong>aceptada/rechazada</strong>, <strong>motivo</strong>,
+<strong>origen de instalación</strong> y <strong>cuándo
+invocarla</strong>. Será <code>SKILLS.md</code>.</p>
+<h3
+id="paso-8--comprueba-los-conflictos-entre-habilidades-antes-de-instalarlas">PASO
+8 — Comprueba los conflictos entre habilidades antes de instalarlas</h3>
+<p><strong>Copia y pega:</strong></p>
+<blockquote>
+<p>Examina la documentación y configuración de cada habilidad
+seleccionada. Detecta duplicados, instrucciones contradictorias,
+funciones solapadas, incompatibilidades de dependencias o versiones,
+permisos y archivos de configuración en conflicto. Redacta
+<code>SKILL_CONFLICT_REPORT.md</code> con columnas: Habilidad A,
+Habilidad B, evidencia, gravedad (Crítica/Moderada/Leve), resolución
+recomendada y estado. Conserva mis habilidades obligatorias siempre que
+sea técnicamente posible y seguro; consúltame antes de sustituirlas.
+Distingue conflictos <strong>verificados</strong> de conflictos
+<strong>posibles</strong>. Si no encuentras ninguno, informa «No se
+detectaron conflictos entre habilidades» e indica lo que comprobaste. No
+instales habilidades con conflictos críticos pendientes.</p>
+</blockquote>
+<p><strong>Resultado:</strong> <code>SKILL_CONFLICT_REPORT.md</code>
+aceptado. Los solapamientos compatibles pueden conservarse si se
+delimitan sus responsabilidades.</p>
+<h3
+id="paso-9--enumera-tus-servidores-mcp-y-considera-recomendaciones-opcionales">PASO
+9 — Enumera TUS servidores MCP y considera recomendaciones
+opcionales</h3>
+<p>Un servidor MCP proporciona al agente funciones como operaciones con
+repositorios, bases de datos, servicios externos o documentación.
+<strong>MCP es opcional:</strong> un script local sencillo quizá no
+necesite ninguno.</p>
+<p><strong>Copia y pega:</strong></p>
+<blockquote>
+<p>Mis servidores MCP obligatorios son: [LISTA, O «ninguno»]. Indica a
+qué se conecta cada uno, qué operaciones espero y si el agente
+seleccionado lo admite. Sugiere únicamente servidores complementarios e
+incluye sus fuentes oficiales y permisos necesarios. Todavía no los
+instales ni autorices.</p>
+</blockquote>
+<p><strong>Resultado:</strong> Plan <code>MCP_SERVERS.md</code>
+aprobado, o <strong>No se necesitan servidores MCP</strong>.</p>
+<h3
+id="paso-10--revisa-conflictos-y-permisos-de-los-servidores-mcp">PASO 10
+— Revisa conflictos y permisos de los servidores MCP</h3>
+<p><strong>Copia y pega:</strong></p>
+<blockquote>
+<p>Revisa todos los servidores MCP seleccionados para detectar nombres
+de herramientas duplicados, escrituras simultáneas en conflicto,
+entornos de ejecución, transportes, versiones, puertos o autenticación
+incompatibles, accesos a archivos o redes y permisos excesivos. Redacta
+<code>MCP_CONFLICT_REPORT.md</code> con evidencia, gravedad, resolución
+y estado de verificación. No habilites conflictos críticos sin resolver.
+No solicites secretos en el chat ni guardes credenciales en archivos del
+repositorio.</p>
+</blockquote>
+<p><strong>Resultado:</strong> <code>MCP_CONFLICT_REPORT.md</code>
+aprobado o una entrada breve <strong>No aplica</strong> si no hay
+servidores. Revisar configuraciones no demuestra que la conexión
+funcione.</p>
+<hr />
+<h2 id="fase-c--construye-la-carpeta-inicial-del-proyecto">FASE C —
+Construye la carpeta inicial del proyecto</h2>
+<h3
+id="paso-11--solicita-el-script-de-andamiaje-y-los-archivos-iniciales">PASO
+11 — Solicita el script de andamiaje y los archivos iniciales</h3>
+<p>El script debe <strong>crear archivos reales</strong> y poder
+repetirse sin destruir silenciosamente tus cambios. <strong>No</strong>
+debe ejecutar automáticamente instalaciones externas no revisadas,
+conectar cuentas ni incluir secretos. Los comandos de instalación deben
+figurar en una lista explícita o en otro script de configuración
+revisado.</p>
+<p><strong>Copia y pega:</strong></p>
+<blockquote>
+<p>Genera <code>scripts/scaffold.sh</code> para mi proyecto aprobado y
+la tecnología elegida. Debe crear un proyecto inicial mínimo y funcional
+y escribir el contenido real aprobado en <code>PROJECT_SPEC.md</code>,
+<code>ARCHITECTURE.md</code>, <code>DESIGN.md</code> (si aplica),
+<code>DATA_CONTRACTS.md</code> y <code>schemas/</code> (si aplica), así
+como <code>README.md</code>, <code>SKILLS.md</code>,
+<code>MCP_SERVERS.md</code>, <code>SKILL_CONFLICT_REPORT.md</code> y
+<code>MCP_CONFLICT_REPORT.md</code>. Añade un <code>.gitignore</code>
+adecuado, una prueba básica de funcionamiento y
+<code>tests/contracts/</code> si existen contratos. No crees carpetas
+innecesarias. No sobrescribas archivos modificados al repetir la
+ejecución. Incluye instrucciones para instalar requisitos previos y
+comandos exactos para ejecutar y comprobar la aplicación inicial. Cuando
+haga falta, coloca las instrucciones revisadas de habilidades y MCP
+locales en un script independiente
+<code>scripts/setup-agent-tools.sh</code>; nunca guardes secretos.
+Explica las diferencias entre agentes. Entrega un script completo
+descargable y los archivos necesarios, no plantillas vacías presentadas
+como resultados terminados.</p>
+</blockquote>
+<p>El árbol podría ser el siguiente; <strong>tu proyecto puede ser más
+sencillo o más grande</strong>. No generes <code>AGENTS.md</code>
+mecánicamente antes de tener archivos reales. Documenta las habilidades
+globales en <code>SKILLS.md</code>; crea <code>skills/</code> solo si
+mantienes habilidades locales:</p>
+<pre class="text"><code>my-project/
+├── README.md
+├── PROJECT_SPEC.md
+├── ARCHITECTURE.md
+├── DESIGN.md                   # solo proyectos con UI
+├── DATA_CONTRACTS.md           # solo proyectos con datos estructurados
+├── AGENTS.md                   # creado/revisado con el agente después
+├── SKILLS.md
+├── MCP_SERVERS.md
+├── SKILL_CONFLICT_REPORT.md
+├── MCP_CONFLICT_REPORT.md
+├── schemas/                    # solo cuando corresponda
+├── skills/                     # solo habilidades locales, si existen
+│   └── release-checklist/
+│       └── SKILL.md
+├── tests/                      # pruebas básicas y de contratos
+├── scripts/
+│   ├── scaffold.sh
+│   └── setup-agent-tools.sh    # solo cuando corresponda
+└── src/                        # o el punto de entrada adecuado</code></pre>
+<p><strong>Resultado:</strong> Script descargable, contenido inicial
+revisado e instrucciones claras para ejecutarlo.</p>
+<h3
+id="paso-12--crea-la-carpeta-ejecuta-el-script-y-comprueba-el-resultado">PASO
+12 — Crea la carpeta, ejecuta el script y comprueba el resultado</h3>
+<p>Guarda <code>scaffold.sh</code> en una ubicación accesible, crea una
+carpeta y <strong>ejecuta el script desde ella</strong>. Un ejemplo en
+Bash:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> my-project</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> my-project</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> scripts</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Copia el archivo scaffold.sh descargado a scripts/ aquí.</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/scaffold.sh</span></code></pre></div>
+<p>Si el script generado requiere otra ruta o argumentos, sigue
+<strong>sus propias</strong> instrucciones. Después, enumera los
+archivos y ejecuta la prueba básica que se haya generado. No continúes
+si faltan archivos necesarios o no existe un punto de partida
+ejecutable.</p>
+<p><strong>Resultado:</strong> Un directorio real con archivos iniciales
+funcionales y documentación aprobada.</p>
+<h3 id="paso-13--inicializa-git-y-guarda-la-primera-versión">PASO 13 —
+Inicializa Git y guarda la primera versión</h3>
+<p>Desde la raíz del proyecto:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Comprueba .gitignore y asegúrate de no añadir tokens ni datos privados.</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;chore: initial project scaffold&quot;</span></span></code></pre></div>
+<p>Si Git solicita tu identidad, configúrala. Crear un repositorio
+<strong>remoto</strong> en GitHub y publicar es un paso separado y
+opcional; el agente puede ayudarte después. Un commit local ya es un
+punto de recuperación.</p>
+<p><strong>Resultado:</strong> Primera versión con control de cambios.
+<strong>Guarda <code>scripts/scaffold.sh</code> en Git</strong> para
+saber cómo se creó la carpeta. El script es una receta histórica de
+configuración, no una instrucción para reconstruir o sobrescribir el
+árbol que irá evolucionando. Si lo amplías, hazlo de forma deliberada y
+segura.</p>
+<h3
+id="paso-14--instala-las-habilidades-aprobadas-y-configura-los-mcp-aprobados">PASO
+14 — Instala las habilidades aprobadas y configura los MCP
+aprobados</h3>
+<p>Ahora que existe el directorio, utiliza los comandos
+<strong>revisados</strong> de los Pasos 6–10. Instala herramientas
+locales desde la raíz del proyecto. Si utilizas
+<code>setup-matt-pocock-skills</code>, ejecútalo <strong>después de
+inicializar Git</strong>, según los requisitos actuales de esa
+herramienta. Las instalaciones globales pueden haberse realizado
+antes.</p>
+<p><strong>Copia y pega a tu agente de programación:</strong></p>
+<blockquote>
+<p>Sigue <code>SKILLS.md</code>, <code>MCP_SERVERS.md</code> y los dos
+informes de conflictos. Muéstrame los comandos de instalación aprobados
+y verifica sus fuentes antes de ejecutarlos. Instala solamente
+habilidades locales aprobadas, configura solo MCP aprobados y usa
+variables de entorno o un almacén seguro para las credenciales.
+Comprueba que cada habilidad pueda encontrarse y que cada servidor MCP
+realmente se conecte y ofrezca las herramientas previstas. Registra
+éxitos, fallos y versiones o revisiones exactas cuando estén
+disponibles. No declares que algo funciona si no se ha probado.</p>
+</blockquote>
+<p><strong>Resultado:</strong> Herramientas del agente verificadas o una
+lista explícita de las que faltan y sus impedimentos. <strong>Algunos
+servidores MCP exigirán que autorices tus cuentas
+personalmente.</strong></p>
+<h3
+id="paso-15--abre-el-agente-en-el-proyecto-e-inicializa-sus-instrucciones">PASO
+15 — Abre el agente en el proyecto e inicializa sus instrucciones</h3>
+<p>Inicia Codex, OpenCode, Claude Code u otro agente <strong>con la
+carpeta del proyecto como espacio de trabajo</strong>. Utiliza su
+función de inicialización, si existe. Algunos admiten
+<code>/init</code>; otros usan comandos o archivos distintos.
+<strong>Pregúntale al agente; no asumas que <code>/init</code> es
+universal.</strong></p>
+<p><strong>Copia y pega:</strong></p>
+<blockquote>
+<p>Examina los archivos que realmente existen en este repositorio. Crea
+o actualiza el archivo de instrucciones del agente que utilice esta
+herramienta. Prefiere un <code>AGENTS.md</code> breve como referencia
+compartida donde se admita; crea los archivos o directivas de
+importación que necesite este agente específico. No supongas que todas
+las herramientas leen <code>AGENTS.md</code> automáticamente. Referencia
+<code>PROJECT_SPEC.md</code>, <code>ARCHITECTURE.md</code>,
+<code>DESIGN.md</code> (si existe), <code>DATA_CONTRACTS.md</code> y
+<code>schemas/</code> (si existen), <code>SKILLS.md</code>,
+<code>MCP_SERVERS.md</code> y ambos informes de conflictos. Explica los
+comandos reales de compilación, ejecución, pruebas y validación; indica
+cuándo utilizar cada habilidad o MCP aprobado. No copies instrucciones
+extensas de habilidades a <code>AGENTS.md</code>, no inventes archivos
+ausentes ni incluyas credenciales. Conserva las instrucciones
+importantes que haya escrito el usuario.</p>
+</blockquote>
+<p><strong>Resultado:</strong> Un agente que conoce las reglas del
+repositorio y sabe dónde encontrar los documentos. Conserva
+<code>README.md</code> para personas y pon las instrucciones operativas
+en <code>AGENTS.md</code>, en lugar de duplicarlas. <strong>Inicializar
+un agente no demuestra que sus herramientas funcionen: verifica por
+separado el descubrimiento y las conexiones.</strong></p>
+<h3
+id="paso-16--prueba-la-versión-inicial-y-confirma-la-configuración-del-agente-en-git">PASO
+16 — Prueba la versión inicial y confirma la configuración del agente en
+Git</h3>
+<p>Solicita al agente que ejecute la prueba básica de la aplicación, la
+validación de esquemas (cuando corresponda) y las pruebas unitarias
+existentes. Comprueba las referencias entre documentos. Después:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;chore: configure agent context and contracts&quot;</span></span></code></pre></div>
+<p>Si nada cambió desde el último commit, Git indicará correctamente que
+no hay cambios para registrar.</p>
+<p><strong>Resultado:</strong> Un punto de partida reproducible y
+probado para desarrollar con el agente.</p>
+<hr />
+<h2 id="fase-d--desarrolla-y-conserva-la-salud-del-proyecto">FASE D —
+Desarrolla y conserva la salud del proyecto</h2>
+<h3 id="paso-17--planifica-la-primera-tarea-pequeña-de-desarrollo">PASO
+17 — Planifica la primera tarea pequeña de desarrollo</h3>
+<p>El andamiaje <strong>no</strong> es una aplicación completa. Solicita
+que el agente convierta la especificación aprobada en cambios pequeños
+con pruebas. Si escogiste el flujo de Matt Pocock, usa
+<code>to-prd</code> para preparar el PRD y <code>to-issues</code>
+<strong>después</strong> de aprobarlo y configurar el gestor de
+incidencias. Para un script pequeño, basta una lista sencilla de tareas;
+no hace falta un gestor formal.</p>
+<p><strong>Copia y pega:</strong></p>
+<blockquote>
+<p>Lee las reglas del repositorio. Propón la función útil más pequeña
+que debemos implementar, con criterios de aceptación y una forma de
+probarla. Identifica qué archivos y contratos de datos afecta.
+Implementa un cambio revisable cada vez, ejecuta las pruebas
+pertinentes, resume los cambios y crea un commit solo después de que
+apruebe el resultado o te autorice explícitamente a hacerlo.</p>
+</blockquote>
+<p><strong>Resultado:</strong> Un ciclo incremental de desarrollo, no
+una generación gigantesca imposible de verificar.</p>
+<h3
+id="paso-18--permite-que-evolucione-el-árbol-del-proyecto-pero-mantén-sus-contratos-e-instrucciones">PASO
+18 — Permite que evolucione el árbol del proyecto, pero mantén sus
+contratos e instrucciones</h3>
+<p>Durante el desarrollo, el agente puede añadir carpetas, cambiar
+nombres de módulos, modificar dependencias o proponer otra arquitectura.
+<strong>Es normal.</strong> <code>scripts/scaffold.sh</code> documenta
+la <strong>configuración inicial</strong>, no obliga a restaurar
+continuamente el árbol original. Mantén <code>README.md</code>,
+<code>ARCHITECTURE.md</code>, <code>DESIGN.md</code> y
+<code>DATA_CONTRACTS.md</code> acordes con el software real.</p>
+<p><strong>Antes de aceptar un cambio, pregunta:</strong></p>
+<blockquote>
+<p>¿Este cambio afecta la arquitectura, la interfaz de usuario, los
+productores o consumidores de datos, los esquemas, las habilidades, los
+servidores MCP, los permisos o los comandos de compilación? Si es así,
+actualiza los documentos y pruebas correspondientes dentro del mismo
+cambio. Comprueba compatibilidad y migraciones antes de modificar
+interfaces de datos. Repite la revisión de conflictos si cambian
+habilidades o servidores MCP. Muéstrame los resultados de verificación y
+riesgos pendientes.</p>
+</blockquote>
+<p>Repite la inicialización del agente o actualiza
+<code>AGENTS.md</code> cuando cambie significativamente la estructura;
+<strong>revisa los resultados porque una inicialización automática puede
+sobrescribir instrucciones personalizadas</strong>. Utiliza
+<code>improve-codebase-architecture</code> solamente cuando exista
+código sustancial y quieras evaluar su arquitectura. Registra puntos de
+recuperación en Git y conserva el historial.</p>
+<p><strong>Resultado:</strong> Un proyecto en crecimiento que tú y las
+futuras sesiones del agente puedan comprender.</p>
+<hr />
+<h2 id="apéndice--prompts-para-mantener-el-contexto-del-agente">Apéndice
+— prompts para mantener el contexto del agente</h2>
+<p>Al crear o actualizar <code>AGENTS.md</code>, una instrucción breve
+puede ser:</p>
+<blockquote>
+<p>Lee <code>PROJECT_SPEC.md</code> para conocer el alcance;
+<code>ARCHITECTURE.md</code> para las invariantes;
+<code>DESIGN.md</code> para normas de UI (si existe);<code>DATA_CONTRACTS.md</code> y <code>schemas/</code> para interfaces
+de datos (si existen); y <code>SKILLS.md</code> /
+<code>MCP_SERVERS.md</code> para las herramientas aprobadas. Consulta
+<code>scripts/scaffold.sh</code> solo para investigar o modificar la
+configuración inicial. Utiliza los comandos de compilación y prueba
+reales de este repositorio; nunca inventes archivos ausentes ni guardes
+secretos en Git.</p>
+</blockquote>
+<p>Una habilidad local sencilla puede residir en
+<code>skills/&lt;skill-name&gt;/SKILL.md</code> e incluir nombre,
+descripción, cuándo usarla, procedimiento ordenado y comprobaciones. El
+descubrimiento automático de esa carpeta <strong>depende de la
+herramienta</strong>: confirma la ruta exigida en su documentación.
+Instala fuentes externas solo después de revisar su contenido y
+permisos.</p>
+<p>Cuando cambies el árbol, <strong>actualiza sus referencias</strong>,
+pero no sobrescribas rutinariamente documentos mantenidos a mano al
+repetir la inicialización del agente. Revisa las diferencias y registra
+los cambios en Git.</p>
+<hr />
+<h2 id="lista-rápida-de-comprobación">Lista rápida de comprobación</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Los objetivos y límites de la
+primera versión están en <code>PROJECT_SPEC.md</code>.</label></li>
+<li><label><input type="checkbox" /><code>ARCHITECTURE.md</code>
+contiene reglas reales; <code>DESIGN.md</code> existe si hace falta una
+UI.</label></li>
+<li><label><input type="checkbox" />Identifiqué productores y
+consumidores de datos; hay esquemas y pruebas sintéticas cuando
+corresponde.</label></li>
+<li><label><input type="checkbox" />Distinguí mis habilidades y
+servidores MCP obligatorios de las recomendaciones
+opcionales.</label></li>
+<li><label><input type="checkbox" />Revisé conflictos de habilidades y
+MCP; resolví los críticos antes de instalar.</label></li>
+<li><label><input type="checkbox" />El andamiaje crea archivos reales y
+un proyecto inicial ejecutable.</label></li>
+<li><label><input type="checkbox" />Git conserva al menos un commit
+inicial; no se han registrado secretos.</label></li>
+<li><label><input type="checkbox" />El agente seleccionado puede leer
+las reglas y usar las herramientas aprobadas.</label></li>
+<li><label><input type="checkbox" />Las pruebas iniciales pasan o están
+documentados los fallos y bloqueos.</label></li>
+<li><label><input type="checkbox" />Comprendo que el árbol inicial es un
+punto de partida, no una estructura permanente.</label></li>
+</ul>
+<h2 id="todo-el-proceso-en-una-línea">Todo el proceso en una línea</h2>
+<p><strong>Idea → especificación → aclarar requisitos →
+diseño/arquitectura/contratos de datos → seleccionar y revisar
+habilidades/MCP → andamiaje → primera versión en Git → configurar
+herramientas → inicializar el agente → verificar → desarrollar funciones
+pequeñas → actualizar documentos, esquemas, pruebas y Git conforme
+evoluciona el proyecto.</strong></p>
+<hr />
+<h2 id="control-de-versiones-de-esta-norma-reutilizable">Control de
+versiones de ESTA norma reutilizable</h2>
+<p>Esta guía es una <strong>norma viva independiente</strong>, no el
+número de versión de los proyectos creados con ella.</p>
+<ul>
+<li>Utiliza <code>MAJOR.MINOR.PATCH</code>: <strong>MAJOR</strong> para
+cambios importantes incompatibles en el proceso; <strong>MINOR</strong>
+para nuevas fases o instrucciones compatibles; <strong>PATCH</strong>
+para correcciones editoriales.</li>
+<li>Cada publicación modifica la versión del <strong>título</strong>,
+<strong>nombre de archivo</strong> y <strong>metadatos</strong>, y añade
+una entrada al historial. Conserva las versiones anteriores en Git o en
+un archivo versionado. No sobrescribas una versión antigua con contenido
+nuevo.</li>
+<li>Commit recomendado: <code>docs(standard): release v1.2.0</code>;
+etiqueta opcional: <code>project-standard-v1.2.0</code>.</li>
+<li>Puedes utilizar esta norma con varios sistemas operativos, agentes y
+lenguajes de programación. Las instrucciones específicas de los agentes
+pueden cambiar; verifica su documentación oficial antes de
+ejecutarlas.</li>
+</ul>
+<h3 id="historial-de-revisiones">Historial de revisiones</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Versión</th>
+<th>Fecha</th>
+<th>Cambios</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>1.2.0</strong></td>
+<td>2026-10-18</td>
+<td>Se fusionaron conceptos de Project Bootstrap Kit en una guía única
+para principiantes: matriz de responsabilidades, habilidades globales
+frente a locales, valores concretos de diseño, configuraciones mínimas,
+portabilidad entre agentes, precauciones para repetir el andamiaje y
+separación entre documentación para personas y agentes.</td>
+</tr>
+<tr class="even">
+<td><strong>1.1.0</strong></td>
+<td>2026-10-18</td>
+<td>Se reorganizó como proceso literal para principiantes; se añadieron
+<code>PROJECT_SPEC.md</code>, condiciones claras para
+<code>DESIGN.md</code>, <code>DATA_CONTRACTS.md</code>, diseño y
+validación de JSON Schema, secuencia de instalación, comprobación del
+proyecto real, inicialización del agente y mantenimiento durante la
+evolución del proyecto.</td>
+</tr>
+<tr class="odd">
+<td><strong>1.0.0</strong></td>
+<td>2026-10-18</td>
+<td>Primera versión formal: habilidades reutilizables, selección e
+instalación de MCP, revisiones de conflictos, andamiaje, contexto del
+agente y control de versiones con Git.</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
